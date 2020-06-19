@@ -1,0 +1,760 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyArcEngineMethod</name>
+    </assembly>
+    <members>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.DrawPoint_Keep(ESRI.ArcGIS.Carto.IActiveView,ESRI.ArcGIS.Geometry.IPoint,ESRI.ArcGIS.Display.IRgbColor,System.Double)">
+            <summary>
+            绘制点
+            </summary>
+            <param name="curView">当前视窗</param>
+            <param name="point">点</param>
+            <param name="color">颜色</param>
+            <param name="radius">点的半径</param>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.DrawPolygon_Keep(ESRI.ArcGIS.Carto.IActiveView,ESRI.ArcGIS.Geometry.IPolygon,ESRI.ArcGIS.Display.IRgbColor,ESRI.ArcGIS.Display.IRgbColor,System.Double)">
+            <summary>
+            绘制多边形
+            </summary>
+            <param name="curView">当前视窗</param>
+            <param name="polygon">多边形</param>
+            <param name="fillColor">填充色</param>
+            <param name="outlineColor">轮廓色</param>
+            <param name="outlineWidth">轮廓粗细</param>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.DrawPolyline_Keep(ESRI.ArcGIS.Carto.IActiveView,ESRI.ArcGIS.Geometry.IPolyline,ESRI.ArcGIS.Display.IRgbColor,System.Double)">
+            <summary>
+            绘制线，需要手动清理
+            </summary>
+            <param name="curView">当前视窗</param>
+            <param name="polyline">折线</param>
+            <param name="lineColor">线颜色</param>
+            <param name="lineWidth">线宽</param>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.DrawPolygonWithText_Keep(ESRI.ArcGIS.Carto.IActiveView,ESRI.ArcGIS.Geometry.IPolygon,ESRI.ArcGIS.Display.IRgbColor,ESRI.ArcGIS.Display.IRgbColor,System.Double,System.String,System.Int32)">
+            <summary>
+            绘制多边形，并将text标在多边形的质心处
+            </summary>
+            <param name="curView">活动视窗</param>
+            <param name="polygon">多边形</param>
+            <param name="fillColor">填充色</param>
+            <param name="outlineColor">轮廓色</param>
+            <param name="outlineWidth">轮廓粗细</param>
+            <param name="text">文字文本</param>
+            <param name="textSize">文本大小</param>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.getColor">
+            <summary>
+            获得随机颜色
+            </summary>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.getColor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+                获得一种RGB颜色
+            </summary>
+            <param name="R"></param>
+            <param name="G"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.ClearGraphics(ESRI.ArcGIS.Carto.IActiveView)">
+            <summary>
+            清空绘制的内容
+            </summary>      
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.Draw_Polygon(ESRI.ArcGIS.Carto.IActiveView,ESRI.ArcGIS.Geometry.IPolygon,ESRI.ArcGIS.Display.IRgbColor,ESRI.ArcGIS.Display.IRgbColor,System.Double)">
+            <summary>
+            绘制多边形
+            </summary>
+            <param name="curView">当前视窗</param>
+            <param name="polygon">多边形</param>
+            <param name="fillcolor">填充色</param>
+            <param name="outlineColor">轮廓色</param>
+            <param name="outlineWidth">轮廓粗细</param>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.Draw_Polyline(ESRI.ArcGIS.Carto.IActiveView,ESRI.ArcGIS.Geometry.IPolyline,ESRI.ArcGIS.Display.IRgbColor,System.Double)">
+            <summary>
+            绘制多义线
+            </summary>
+            <param name="curView">当前视窗</param>
+            <param name="polyline">多义线</param>
+            <param name="color">颜色</param>
+            <param name="lineWidth">绘制线的粗细</param>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.Draw_Point(ESRI.ArcGIS.Carto.IActiveView,ESRI.ArcGIS.Geometry.IPoint,ESRI.ArcGIS.Display.IRgbColor,System.Int32)">
+            <summary>
+            绘制点
+            </summary>
+            <param name="curView">当前视窗</param>
+            <param name="point">点</param>
+            <param name="color">颜色</param>
+            <param name="radius">点的半径</param>
+        </member>
+        <member name="M:MyArcEngineMethod.ArcMapDrawing.RefreshArea(ESRI.ArcGIS.Carto.IActiveView,ESRI.ArcGIS.Geometry.IEnvelope)">
+            <summary>
+            对某一矩形区域进行刷白
+            </summary>
+            <param name="activeView">活动视窗</param>
+            <param name="pEnvelope">要素类的包络</param>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureClassOperation.OpenFeatureClass(System.String)">
+            <summary>
+            打开要素类
+            </summary>
+            <param name="shpFilePath">文件位置</param>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureClassOperation.CreateNewFeatureClass(System.String,ESRI.ArcGIS.Geometry.esriGeometryType,ESRI.ArcGIS.Geometry.ISpatialReference)">
+            <summary>
+            创建新要素类
+            </summary>
+            <param name="shpPath">指定输出要素类的路径</param>
+            <param name="geoType">新要素类的几何类型</param>
+            <param name="sr">新要素类的空间参考</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureClassOperation.CreateNewFeatureClass(System.String,ESRI.ArcGIS.Geometry.esriGeometryType,ESRI.ArcGIS.Geodatabase.IFeatureClass,System.Boolean,ESRI.ArcGIS.Geometry.ISpatialReference)">
+            <summary>
+            创建新要素类,并复制源要素类的所有字段与空间参考
+            </summary>
+            <param name="shpPath">指定输出要素类的路径</param>
+            <param name="geoType">新要素类的几何类型</param>
+            <param name="sourceClass">源要素类</param>
+            <param name="copyRs">是否复制空间参考, 若为否，则必须给出sr</param>
+            <returns>新要素类，不含任何要素</returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureClassOperation.JudgeFeatureClassCoordinateSystem(ESRI.ArcGIS.Geodatabase.IFeatureClass)">
+            <summary>
+            判断要素类的坐标系类型，无坐标返回0，投影坐标系返回1，地理坐标系返回-1
+            </summary>
+            <param name="feaClass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureClassOperation.QueryTIN(ESRI.ArcGIS.Geometry.IPointCollection,ESRI.ArcGIS.Geodatabase.IFeatureClass)">
+            <summary>
+            创建TIN
+            </summary>
+            <param name="pointColl">点集</param>
+            <param name="featureClass">点集所在的要素类</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureClassOperation.QueryTIN(ESRI.ArcGIS.Geodatabase.IFeatureClass)">
+            <summary>
+            构建点要素类的三角网
+            </summary>
+            <param name="pointFeaClass">输入的点要素类</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureClassOperation.AddGeometryToFeatureClass_Store(ESRI.ArcGIS.Geodatabase.IFeatureClass,ESRI.ArcGIS.Geometry.IGeometry,ESRI.ArcGIS.Geodatabase.IFeature)">
+            <summary>
+            将形状包装成要素并添加至要素类
+            </summary>
+            <param name="featureClass">要素类</param>
+            <param name="geometry">多边形</param>
+            <param name="copyFea">提供新要素各种属性的原要素</param>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureClassOperation.AddGeometryToFeatureClass_Cursor(ESRI.ArcGIS.Geodatabase.IFeatureClass,ESRI.ArcGIS.Geometry.IGeometry,ESRI.ArcGIS.Geodatabase.IFeature,System.Boolean)">
+            <summary>
+            使用游标的方法向要素类中插入要素
+            </summary>
+            <param name="fc">要素类数据库</param>
+            <param name="geo">新要素的几何形状</param>
+            <param name="copyFea">复制字段属性的要素</param>
+            <param name="isGetFeature">是否返回要素，true时得到新要素，false时返回空值</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureOperation.GetAllSelectedFeaturesArray(ESRI.ArcGIS.Carto.IMap)">
+            <summary>
+            获取到当前地图上的所有选择的要素
+            </summary>
+            <param name="mMap">当前地图 IMap</param>
+            <returns></returns>   
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureOperation.GetAllSelectedFeaturesList(ESRI.ArcGIS.Carto.IMap)">
+            <summary>
+            获取到当前地图上的所有选择的要素
+            </summary>
+            <param name="mMap">当前地图 IMap</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureOperation.GetSelectedFeaListInCurrentFeaclass(ESRI.ArcGIS.Carto.IMap,System.Int32)">
+            <summary>
+            获取在当前地图上选中了的属于某一要素类的所有要素
+            </summary>
+            <param name="mMap">当前地图IMap</param>
+            <param name="objectClassID">某一要素类的ObjectClassID</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FeatureOperation.GetASelectedFeaArrayInCurrentFeaclass(ESRI.ArcGIS.Carto.IMap,System.Int32)">
+            <summary>
+            获取在当前地图上选中了的属于某一要素类的所有要素
+            </summary>
+            <param name="mMap">当前地图IMap</param>
+            <param name="objectClassID">某一要素类的ObjectClassID</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.CreateFieldsByName(ESRI.ArcGIS.Geodatabase.IFeatureClass,ESRI.ArcGIS.Geodatabase.esriFieldType,System.String[])">
+            <summary>
+            根据字段名为要素类创建字段
+            </summary>
+            <param name="featClass">输入要素类</param>
+            <param name="fieldType">字段类型</param>
+            <param name="fieldsname">字段名称，可变参量</param>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.CreateFieldsAndGetIndex(ESRI.ArcGIS.Geodatabase.IFeatureClass,ESRI.ArcGIS.Geodatabase.esriFieldType,System.String[])">
+            <summary>
+            创建字段并且得到字段的索引
+            </summary>
+            <param name="featClass">待创建要素类的字段</param>
+            <param name="fieldType">字段类型</param>
+            <param name="fieldsname">字段名称</param>
+            <returns>返回新建字段的索引，若存在，返回其固有的索引</returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.CreateOneFieldAndGetIndex(ESRI.ArcGIS.Geodatabase.IFeatureClass,ESRI.ArcGIS.Geodatabase.esriFieldType,System.String)">
+            <summary>
+            创建一个字段并返回索引
+            </summary>
+            <param name="featClass">要素类</param>
+            <param name="fieldType">字段类型</param>
+            <param name="fieldsname">字段名称</param>
+            <returns>字段的索引</returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.RefreshFieldValue(ESRI.ArcGIS.Geodatabase.IFeatureClass,System.String[])">
+            <summary>
+            将要素类该字段的值均重置为空
+            </summary>
+            <param name="feaClass">要素类</param>
+            <param name="fieldNames">字段名称</param>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.DeleteFieldByName(ESRI.ArcGIS.Geodatabase.IFeatureClass,System.String[])">
+            <summary>
+            删除要素类中不必要的字段
+            </summary>
+            <param name="feaClass">输入的要素类</param>
+            <param name="fieldName">删除的字段名,可变参量</param>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.GetFeatureClassUniqueFieldValue(ESRI.ArcGIS.Geodatabase.IFeatureClass,System.String)">
+            <summary>
+            获取到要素类的某一字段枚举值，返回字符串类型的列表
+            </summary>
+            <param name="fc">输入的要素类</param>
+            <param name="fieldName">待查询的字段名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.GetTableFieldUniqueValue(ESRI.ArcGIS.Geodatabase.ITable,System.String)">
+            <summary>
+            获取到属性表的某字段唯一值
+            </summary>
+            <param name="table">属性表</param>
+            <param name="fieldName">字段名</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.CopyFeatureFields(ESRI.ArcGIS.Geodatabase.IFeature,ESRI.ArcGIS.Geodatabase.IFeature,ESRI.ArcGIS.Geometry.IGeometry,System.Boolean)">
+            <summary>
+            复制要素的字段属性
+            </summary>
+            <param name="sourceFea">源要素</param>
+            <param name="targetFea">待复制要素</param>
+            <param name="geo">几何形状，可为空</param>
+            <param name="isStore">是否调用fea的store方法</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.CopyFeatureClassFields(ESRI.ArcGIS.Geodatabase.IFeatureClass,ESRI.ArcGIS.Geodatabase.IFeatureClass)">
+            <summary>
+            将一个要素类的所有字段集复制到另一个要素类（除了shape字段与不可编辑的字段）
+            </summary>
+            <param name="source">源要素类</param>
+            <param name="target">目标要素类</param>
+            <returns>是否复制成功</returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.isContainFields(ESRI.ArcGIS.Geodatabase.IFields,System.String[])">
+            <summary>
+            判断字段集中是否含有某些字段
+            </summary>
+            <param name="fields">字段集合</param>
+            <param name="fieldName">字段名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.FieldOperation.ExportFieldsValue2Excel(ESRI.ArcGIS.Geodatabase.IFeatureClass,System.String,System.String,System.String[])">
+            <summary>
+            将要素类的table表中的字段导出到excel
+            </summary>
+            <param name="featClass">要导出的要素类</param>
+            <param name="excelPath">导出excel的路径</param>
+            <param name="sheetName">写入excel的第一页的名称</param>
+            <param name="fields2Export">要导出的字段名称，可变参量</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.EnvelopeToPolygon(ESRI.ArcGIS.Geometry.IEnvelope)">
+            <summary>
+            将包络线转化为多边形
+            </summary>
+            <param name="pEnvelope">包络线参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.GetPolygonByPArray(ESRI.ArcGIS.Geometry.IPointArray)">
+            <summary>
+            用点数组构造多边形，数组中最后一个元素与第一个元素为同一个点
+            </summary>
+            <param name="pArray">点数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.GetPolylineByPArray(ESRI.ArcGIS.Geometry.IPointArray,ESRI.ArcGIS.Geometry.ISpatialReference)">
+            <summary>
+            用一组有顺序的点构造polyline
+            </summary>
+            <param name="pArray"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.GetRectangleByPoint(ESRI.ArcGIS.Geometry.IPoint,System.Double,System.Double,System.Boolean)">
+            <summary>
+            根据点获取边与XY轴平行的矩形
+            </summary>
+            <param name="mp">控制点</param>
+            <param name="length">矩形长</param>
+            <param name="width">矩形宽</param>
+            <param name="isCenter">如果是true，则点mp是矩形的中心点；如果为false，则点mp为矩形的顶点之一</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.GetRectangleByPoint_Cut(ESRI.ArcGIS.Geometry.IPoint,System.Double,System.Double)">
+            <summary>
+            获取一个四分之三的边与XY轴平行的矩形
+            </summary>
+            <param name="p">控制点</param>
+            <param name="length">矩形长</param>
+            <param name="width">矩形宽</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.RotateRectAntiCWByPoint(ESRI.ArcGIS.Geometry.IPolygon,ESRI.ArcGIS.Geometry.IPoint,System.Double)">
+            <summary>
+            将矩形绕着某点逆时针旋转一定角度，输出旋转后的矩形
+            </summary>
+            <param name="mPoly">待旋转矩形</param>
+            <param name="p">绕旋转点</param>
+            <param name="angle">旋转角度，弧度</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.CutGeo(ESRI.ArcGIS.Geometry.IGeometry,System.Collections.Generic.List{ESRI.ArcGIS.Geometry.IPolyline})">
+            <summary>
+            切割线切割尖角，得到碎片多边形
+            </summary>>
+            <param name="Geo">尖角</param>
+            <param name="cutLineSet">切割线集合</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.FirstCut(ESRI.ArcGIS.Geometry.IGeometry,System.Collections.Generic.List{ESRI.ArcGIS.Geometry.IPolyline})">
+            <summary>
+            返回切割碎片多边形第一条找到的切割线索引
+            </summary>>
+            <param name="fragPolygon">碎片多边形</param>
+            <param name="cutLineSet">切割线集合</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.JudgeGeometryNormal(ESRI.ArcGIS.Geometry.IGeometry)">
+            <summary>
+            判断多边形是否为普通多边形，即不含有内环或多个外环，普通返回-1，有内环返回0，有外环返回1
+            </summary>
+            <param name="geo">几何形状</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.Points2Distance(ESRI.ArcGIS.Geometry.IPoint,ESRI.ArcGIS.Geometry.IPoint)">
+            <summary>
+            计算两点之间的距离
+            </summary>
+            <param name="p1">点1</param>
+            <param name="p2">点2</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.QuerySymmetricPoint(ESRI.ArcGIS.Geometry.IPoint,ESRI.ArcGIS.Geometry.ILine)">
+            <summary>
+            获取点到直线段的对称点
+            </summary>
+            <param name="point">查询点</param>
+            <param name="line">直线段</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.QueryFootPoint(ESRI.ArcGIS.Geometry.IPoint,ESRI.ArcGIS.Geometry.ILine,System.Double)">
+            <summary>
+            获取点到直线段的垂点
+            </summary>
+            <param name="point">查询点</param>
+            <param name="line">直线段</param>
+            <param name="extendLength">直线段向两端延长的距离，默认为10米</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.QueryExtendLine(ESRI.ArcGIS.Geometry.IPolyline,System.Int32,System.Double)">
+            <summary>
+            延长线段。模式：1为从FromPoint处延长，2为从ToPint处延长，3为两端延长
+            </summary>
+            <param name="inputPolyline">传入去的线</param>
+            <param name="mode">模式，1为从FromPoint处延长，2为从ToPint处延长，3为两端延长</param>
+            <param name="dis">延长的距离</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.MBR(ESRI.ArcGIS.Geometry.IPolygon)">
+            <summary>
+            建立最小外接矩形
+            </summary>
+            <param name="pPoly">经多边形建立的凸包</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.Terminal(ESRI.ArcGIS.Geometry.IPointCollection,System.Collections.Generic.List{System.Double})">
+            <summary>
+            求多边形四端点
+            </summary>
+            <param name="pPtInPolygon">待求端点的多边形</param>
+            <param name="terminal">端点存储集合</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.FindLongAngle(ESRI.ArcGIS.Geometry.IPolygon)">
+            <summary>
+            寻找外接矩形长边
+            </summary>
+            <param name="pPlg">矩形</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.CreateSpatialReference(System.String)">
+            <summary>
+            根据prj文件创建空间参考
+            </summary>
+            <param name="strProFile">空间参照文件</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GeometryOperation.CreatRectangleBufferByPolyline(ESRI.ArcGIS.Geometry.IPolyline,System.Double,System.Collections.Generic.List{ESRI.ArcGIS.Geometry.IPolyline})">
+            <summary>
+            得到折线的矩形缓冲区
+            </summary>
+            <param name="poly"></param>
+            <param name="bufferDis2">矩形宽度的二分之一</param>
+            <param name="cuts">输出两条切割线</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.GP_Process.FeaturesToPoint(System.String,System.String)">
+            <summary>
+            要素类转点工具
+            </summary>
+            <param name="inFeaClassPath">输入要素类路径</param>
+            <param name="outFeaClassPath">输出要素类路径</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GP_Process.Projection(System.String,System.String,System.String)">
+            <summary>
+            投影转换工具
+            </summary>
+            <param name="inFeatClassPath">输入要素类路径</param>
+            <param name="outFeatClassPath">输出要素类路径</param>
+            <param name="projectPath">投影文件路径，投影文件如：CGCS2000 3 Degree GK CM 117E.prj</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GP_Process.CreateVoronoi(System.String,System.String)">
+            <summary>
+            生成Voronoi图
+            </summary>
+            <param name="inFeaClassPath">输入要素类路径</param>
+            <param name="outFeaClassPath">输出Voronoi要素类路径</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GP_Process.CopyFeatureClass(System.String,System.String)">
+            <summary>
+            复制要素类
+            </summary>
+            <param name="sourcePath">待复制要素类路径</param>
+            <param name="targetPath">输出要素类路径</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GP_Process.SplitPolylineByPointFeaClass(System.String,System.String,System.String,System.String)">
+            <summary>
+            用点分割线要素
+            </summary>
+            <param name="lineFeaClassPath">线要素路径</param>
+            <param name="pointFeaClassPath">点要素路径</param>
+            <param name="outFeaClass">输出线要素路径</param>
+            <param name="searchRadius">设置容差值，默认为"1 Meters"</param>
+        </member>
+        <member name="M:MyArcEngineMethod.GP_Process.CreateFishnetFeaClass(System.String,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            创建渔网要素
+            </summary>
+            <param name="shpPath">模板要素类的路径</param>
+            <param name="savePath">结果存储路径</param>
+            <param name="columsNum">列数</param>
+            <param name="rowsNum">行数</param>
+            <param name="geometryType">几何类型，只能是"polyline"或"polygon"</param>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.AuthorAttribute.Author">
+            <summary>
+            作者
+            </summary>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.AuthorAttribute.Version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.AuthorAttribute.Date">
+            <summary>
+            添加日期
+            </summary>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.UnFinishedAttribute.Author">
+            <summary>
+            作者
+            </summary>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.UnFinishedAttribute.DateTime">
+            <summary>
+            日期
+            </summary>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.UnFinishedAttribute.Discription">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.WaitCorrectedAttribute.PositionalString">
+            <summary>
+            定位信息
+            </summary>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.WaitCorrectedAttribute.Reason">
+            <summary>
+            修正的原因
+            </summary>
+        </member>
+        <member name="P:MyArcEngineMethod.MyAttribute.WaitCorrectedAttribute.Discription">
+            <summary>
+            待修正的代码描述
+            </summary>
+        </member>
+        <member name="M:MyArcEngineMethod.MyExtensionMethod.DoubleExtension.Round(System.Double,System.Int32)">
+            <summary>
+            保留几位小数
+            </summary>
+            <param name="x">小数</param>
+            <param name="deci">保留小数的位数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyExtensionMethod.DoubleExtension.Compare(System.Double,System.Double,System.Int32)">
+            <summary>
+            比较两个浮点数是否相等，可指定精度
+            </summary>
+            <param name="x">被比较的数</param>
+            <param name="y">比较的数</param>
+            <param name="deci">精度，取几位小数进行比较</param>
+            <returns>小于返回-1 等于返回0 大于返回1</returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyExtensionMethod.Int32Extension.Power(System.Int32,System.Int32)">
+            <summary>
+            求整数的n次幂的值
+            </summary>
+            <param name="x">整数</param>
+            <param name="n">幂</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyExtensionMethod.Int32Extension.Power(System.Int32,System.Double)">
+            <summary>
+            求整数的n次幂的值
+            </summary>
+            <param name="x">整数</param>
+            <param name="n">幂</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyExtensionMethod.IPointArrayExtension.Contains(ESRI.ArcGIS.Geometry.IPointArray,ESRI.ArcGIS.Geometry.IPoint,System.Int32)">
+            <summary>
+            判断点数组里面是否包含某一点
+            </summary>
+            <param name="pArray">ipointarray实例</param>
+            <param name="p">待查询点</param>
+            <param name="deci">判断精度，默认为5位小数</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyExtensionMethod.IPointArrayExtension.GetPolygonByPArray(ESRI.ArcGIS.Geometry.IPointArray)">
+            <summary>
+            用点数组构造多边形，数组中最后一个元素与第一个元素为同一个点
+            </summary>
+            <param name="pArray">点数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyExtensionMethod.IPointExtension.GetDistance(ESRI.ArcGIS.Geometry.IPoint,ESRI.ArcGIS.Geometry.IPoint)">
+            <summary>
+            计算该点到另一个点的距离
+            </summary>
+            <param name="p1"></param>
+            <param name="targetPoint">目标点</param>
+            <returns>距离</returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyExtensionMethod.IPointExtension.GetMidpoint(ESRI.ArcGIS.Geometry.IPoint,ESRI.ArcGIS.Geometry.IPoint)">
+            <summary>
+            获取两点之间的中间点
+            </summary>
+            <param name="p">操作点</param>
+            <param name="targetPoint">目标点</param>
+            <returns>中间点</returns>
+        </member>
+        <member name="T:MyArcEngineMethod.MyLogger.LogType">
+            <summary>
+            写入日志文件的类型
+            </summary>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.Close">
+            <summary>
+            手动关闭资源流
+            </summary>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.Fine(System.Int32)">
+            <summary>
+            异步打印日志，良好
+            </summary>
+            <param name="n">指定调用栈的层数</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.Info(System.Int32)">
+            <summary>
+            异步打印日志，信息
+            </summary>
+            <param name="n">指定调用栈的层数</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.Warn(System.Int32)">
+            <summary>
+            异步打印日志，警告
+            </summary>
+            <param name="n">指定调用栈的层数</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.Error(System.Int32)">
+            <summary>
+            异步打印日志，错误
+            </summary>
+            <param name="n">指定调用栈的层数</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.Message(System.String)">
+            <summary>
+            异步打印日志，输出指定信息
+            </summary>
+            <param name="mess">指定的信息</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.WirteLog(MyArcEngineMethod.MyLogger.LogType,System.Int32,System.String)">
+            <summary>
+            开启读写锁，写入日志
+            </summary>
+            <param name="logType">写入日志的类型</param>
+            /// <param name="n">调用栈的层数</param>
+            /// <param name="message">若为Message类型，需要指定该参数</param>
+            <returns>返回是否写入成功</returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.Dispose">
+            <summary>
+            释放非托管资源
+            </summary>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.Dispose(System.Boolean)">
+            <summary>
+            释放资源
+            </summary>
+            <param name="disposing">是否已清理过非托管资源</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.GetInfo(System.Int32)">
+            <summary>
+            获取调用函数的基本信息，包括行号，文件名，方法名
+            </summary>
+            <param name="n">指定输出调用栈的层数，默认为1</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.GetFine(System.Int32)">
+            <summary>
+            打印日志，良好
+            </summary>
+            <param name="n">指定调用栈的层数</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.GetInfo2(System.Int32)">
+            <summary>
+            打印日志，信息
+            </summary>
+            <param name="n">指定调用栈的层数</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.GetWarn(System.Int32)">
+            <summary>
+            打印日志，警告
+            </summary>
+            <param name="n">指定调用栈的层数</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.GetError(System.Int32)">
+            <summary>
+            打印日志，错误
+            </summary>
+            <param name="n">指定调用栈的层数</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLogger.GetMessage(System.String)">
+            <summary>
+            打印日志，输出指定信息
+            </summary>
+            <param name="mess">指定的信息</param>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLoggerFactory.GetInstance(System.Diagnostics.StackTrace)">
+            <summary>
+            获取实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLoggerFactory.GetInstance(System.Diagnostics.StackTrace,System.Boolean)">
+            <summary>
+            获取实例
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.MyLogger.MyLoggerFactory.GetInstanceOnNewThread(System.Diagnostics.StackTrace,System.Boolean)">
+            <summary>
+             异步获取实例
+            </summary>
+            <param name="st">StackTrace实例</param>
+            <param name="append">是否为追加模式</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.OtherMethod.ReadExcel(System.String,System.String,System.String)">
+            <summary>
+            将Excel文件读取出来存储在datatable中
+            </summary>
+            <param name="excelpath">Excel文件路径</param>
+            <param name="sheetName">要导出的工作表名称</param>
+            <param name="column">需要导出的列，形如：A2:D5</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.OtherMethod.CopySameNameFiles(System.String,System.String,System.String)">
+            <summary>
+            复制所有同名文件到另一目录中
+            </summary>
+            <param name="sourcePath">待复制文件路径</param>
+            <param name="targetDirectory">目标目录</param>
+            <param name="newName">复制后文件的名称（可重命名）</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.OtherMethod.DeleteSameNameFiles(System.String)">
+            <summary>
+            删除默认目录下所有同名文件
+            </summary>
+            <param name="filePath">待删除文件路径</param>
+        </member>
+        <member name="M:MyArcEngineMethod.OtherMethod.GetFeatureLayerPath(ESRI.ArcGIS.Carto.IFeatureLayer)">
+            <summary>
+            获取到图层的路径
+            </summary>
+            <param name="curLayer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.OtherMethod.ReadTxt2StrList(System.String)">
+            <summary>
+            读取所有的txt文件内容到string list中
+            </summary>
+            <param name="txtPath">txt路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.OtherMethod.WriteArryList2Txt(System.Collections.Generic.List{System.String},System.String,System.Boolean,System.Text.Encoding)">
+            <summary>
+            将list中的内容写入txt文件中
+            </summary>
+            <param name="arrayList">string list</param>
+            <param name="txtPath">txt路径，若不存在则自动创建</param>
+            <param name="isAppend">是否为追加模式</param>
+            <param name="encoding">编码方式</param>
+            <returns></returns>
+        </member>
+        <member name="M:MyArcEngineMethod.OtherMethod.GetAllFilePath(System.String,System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            得到路径下的所有文件夹下的某后缀文件
+            </summary>
+            <param name="targetDir">目标目录</param>
+            <param name="allPath">所有的路径的list</param>
+            <param name="filter">过滤器，默认为“.txt”</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
